@@ -27,18 +27,23 @@ iframe{
     overflow-y: auto;
     background-color: rgb(244, 247, 251);
     padding: 1.5rem;
+
+    .component-row{
+      & + .component-row{
+        margin-top: 1.5rem;
+      }
+    }
+
     .elementTitle {
       font-size: 2rem;
       font-weight: 700;
       padding: 0 0.7rem;
       padding-top: 50px;
+      &:first-child {
+        padding-top: 0px;
+      }
     }
-    .elementTitle:first-child {
-      padding-top: 0px;
-    }
-    & div {
-      padding: 0.5rem;
-    }
+
     .navbar {
       margin: 10px 0.7rem;
       .sgds-container {
@@ -53,7 +58,6 @@ iframe{
     }
     .button-row {
       padding: 10px 0.7rem;
-      max-height: 110px;
       .sgds-button {
         margin-right: 15px;
       }
@@ -91,8 +95,6 @@ iframe{
     border-left: 1px solid #dfe3e6;
     padding: 0px;
     display: flex;
-
-    
 
     .elementList {
       height: 100%;

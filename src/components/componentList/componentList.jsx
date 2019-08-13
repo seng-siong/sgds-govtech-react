@@ -333,167 +333,244 @@ class ComponentList extends Component {
     };
     return (
       <div className="componentList content">
-        <div className="elementTitle">Buttons</div>
-        <div className="button-row">
-          <Button
-            onClick={this.defaultButtonClicked}
-            isDisabled={this.state.defaultButtonDisabled}
-          >
-            {this.state.defaultButtonText}
-          </Button>
-          <Button
-            isPrimary={true}
-            onClick={this.primaryButtonClicked}
-            themePrimaryColor={themePrimaryColor}
-            isDisabled={this.state.primaryButtonDisabled}
-          >
-            {this.state.primaryButtonText}
-          </Button>
-        </div>
-        <div className="button-row">
-          <Button
-            isPrimary={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="small"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isOutlined={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="small"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isRounded={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="small"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isDisabled={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="small"
-          >
-            button
-          </Button>
-        </div>
-        <div className="button-row">
-          <Button
-            isPrimary={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="medium"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isOutlined={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="medium"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isRounded={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="medium"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isDisabled={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="medium"
-          >
-            button
-          </Button>
-        </div>
-        <div className="button-row">
-          <Button
-            isPrimary={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="large"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isOutlined={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="large"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isRounded={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="large"
-          >
-            button
-          </Button>
-          <Button
-            isPrimary={true}
-            isDisabled={true}
-            themePrimaryColor={themePrimaryColor}
-            buttonSize="large"
-          >
-            button
-          </Button>
-        </div>
-        <div className="elementTitle">Navigation Bar</div>
-        <MainNav
-          themePrimaryColor={themePrimaryColor}
-          brand={this.mainNavItems.brand}
-          links={this.mainNavItems.links}
-          selectItem={this.selectMenuItem}
-          isFluid={true}
-          displaySeardh={true}
-        />
-        <div className="elementTitle">Typography</div>
-        <TypographyComponent />
-        <div className="elementTitle">Tables{this.props.tableIsNarrow}</div>
-        <TableComponent
-          tableBackgroundColor={tableHeadColor}
-          isFullwidth={this.props.tableIsFullwidth}
-          isHoverable={this.props.tableIsHoverable}
-          isNarrow={this.props.tableIsNarrow}
-        />
-        <div className="elementTitle">Breadcrumb</div>
-        <Breadcrumb
-          hasBackgroundDark={false}
-          hasTextWhite={false}
-          items={this.breadcrumbItems}
-        />
-        <Breadcrumb
-          hasBackgroundDark={true}
-          hasTextWhite={true}
-          items={this.breadcrumbItems}
-        />
-        <div className="elementTitle">Accordion Bar</div>
-        <AccordionBar items={this.accordionBarItems} />
-        <div className="elementTitle">Card</div>
-        <Card card={this.cardItems} />
-        <div className="elementTitle">Callout</div>
-        <Callout callout={this.callout} />
-        <Hero
-          themePrimaryColor={themePrimaryColor}
-          title={this.hero.defaultHero.title}
-          subtitle={this.hero.defaultHero.subtitle}
-        />
-        <div className="row">
-          <div className="sgds-button sgds-button is-rounded is-primary is-large">
-            <button onClick={this.exportStyle}>Export</button>
+        <div className="sgds-container">
+          {/* button */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Buttons</h2>
+              <div className="button-row">
+                <Button
+                  onClick={this.defaultButtonClicked}
+                  isDisabled={this.state.defaultButtonDisabled}
+                >
+                  {this.state.defaultButtonText}
+                </Button>
+                <Button
+                  isPrimary={true}
+                  onClick={this.primaryButtonClicked}
+                  themePrimaryColor={themePrimaryColor}
+                  isDisabled={this.state.primaryButtonDisabled}
+                >
+                  {this.state.primaryButtonText}
+                </Button>
+              </div>
+              <div className="button-row">
+                <Button
+                  isPrimary={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="small"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isOutlined={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="small"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isRounded={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="small"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isDisabled={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="small"
+                >
+                  button
+                </Button>
+              </div>
+              <div className="button-row">
+                <Button
+                  isPrimary={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="medium"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isOutlined={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="medium"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isRounded={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="medium"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isDisabled={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="medium"
+                >
+                  button
+                </Button>
+              </div>
+              <div className="button-row">
+                <Button
+                  isPrimary={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="large"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isOutlined={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="large"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isRounded={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="large"
+                >
+                  button
+                </Button>
+                <Button
+                  isPrimary={true}
+                  isDisabled={true}
+                  themePrimaryColor={themePrimaryColor}
+                  buttonSize="large"
+                >
+                  button
+                </Button>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Navigation Bar */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Navigation Bar</h2>
+              <MainNav
+                themePrimaryColor={themePrimaryColor}
+                brand={this.mainNavItems.brand}
+                links={this.mainNavItems.links}
+                selectItem={this.selectMenuItem}
+                isFluid={true}
+                displaySeardh={true}
+              />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Typography */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Typography</h2>
+              <TypographyComponent />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Tables */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Tables {this.props.tableIsNarrow}</h2>
+              <TableComponent
+                tableBackgroundColor={tableHeadColor}
+                isFullwidth={this.props.tableIsFullwidth}
+                isHoverable={this.props.tableIsHoverable}
+                isNarrow={this.props.tableIsNarrow}
+              />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+        
+          {/* Breadcrumb */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Breadcrumb</h2>
+              <Breadcrumb
+                hasBackgroundDark={false}
+                hasTextWhite={false}
+                items={this.breadcrumbItems}
+              />
+              <Breadcrumb
+                hasBackgroundDark={true}
+                hasTextWhite={true}
+                items={this.breadcrumbItems}
+              />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Accordion */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Accordion</h2>
+              <AccordionBar items={this.accordionBarItems} />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Card */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Card</h2>
+              <Card card={this.cardItems} />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Callout */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Callout</h2>
+              <Callout callout={this.callout} />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Hero */}
+          <div className="row component-row">
+            <div className="col">
+              <h2 class="has-text-weight-bold">Hero</h2>
+              <Hero
+                themePrimaryColor={themePrimaryColor}
+                title={this.hero.defaultHero.title}
+                subtitle={this.hero.defaultHero.subtitle}
+              />
+            </div>
+          </div>
+
+          <hr class="margin--top margin--bottom"/>
+
+          {/* Export Button */}
+          <div className="row component-row">
+            <div className="col">
+                <button className="sgds-button is-rounded is-primary is-large" onClick={this.exportStyle}>Export</button>
+            </div>
+          </div>
+        </div> 
+        
       </div>
     );
   }
