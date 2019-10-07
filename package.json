@@ -1,16 +1,18 @@
 {
   "name": "sgds-govtech-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
   "scripts": {
     "build": "react-scripts build",
-    "compile": "rm -rf ./dist && NODE_ENV=production babel src/components --out-dir ./dist --source-maps",
-    "compile::watch": "rm -rf ./dist && NODE_ENV=production babel src/components --watch --out-dir ./dist --source-maps",
+    "build:lib": "rm -rf ./dist && NODE_ENV=production babel src/components --out-dir ./dist --source-maps",
+    "build:storybook": "build-storybook -s public",
+    "build:watch": "rm -rf ./dist && NODE_ENV=production babel src/components --watch --out-dir ./dist --source-maps",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
+    "storybook": "start-storybook -p 6006",
     "test": "react-scripts test"
   },
   "browserslist": {
@@ -30,14 +32,24 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@storybook/addon-a11y": "^5.2.1",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addon-notes": "^5.2.1",
+    "@storybook/addon-storysource": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "babel-loader": "^8.0.5",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "3.2.0",
     "react-syntax-highlighter": "^11.0.2",
-    "sgds-govtech": "^1.2.3",
+    "storybook-addon-markdown": "github:mihalik/storybook-addon-markdown",
     "styled-components": "^4.3.2"
-  }
+  },
+  "dependencies": {}
 }

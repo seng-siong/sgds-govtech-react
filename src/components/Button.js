@@ -6,7 +6,8 @@ class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hovered: false
+      hovered: false,
+      focused: false
     };
   }
 
@@ -23,9 +24,38 @@ class Button extends Component {
     });
   }
 
+  getSize(){
+     let size = "";
+    if (this.props.buttonSize === "small") {
+      size = " is-small";
+    } else if (this.props.buttonSize === "medium") {
+      size = " is-medium";
+    } else if (this.props.buttonSize === "large") {
+      size = " is-large";
+    }
+    return size
+  }
+
+  getColorType(){
+    if(this.props.colorType==='success'){
+      return ' is-success'
+    }
+    if(this.props.colorType==='warning'){
+      return ' is-warning'
+    }
+      
+    if(this.props.colorType==='danger'){
+      return ' is-danger'
+    }
+
+    if(this.props.colorType==='info'){
+      return ' is-info'
+    }
+    return ''
+  }
   // isPrimary, isOutlined, isRounded, disabled, buttonSize
   getClassName() {
-    let className = "sgds-button";
+    let className =  this.props.isSecondary?"sgds-sec-button":"sgds-button";
     if (this.props.isPrimary) {
       className = className.concat(" is-primary");
     }
@@ -35,13 +65,12 @@ class Button extends Component {
     if (this.props.isRounded) {
       className = className.concat(" is-rounded");
     }
-    if (this.props.buttonSize === "small") {
-      className = className.concat(" is-small");
-    } else if (this.props.buttonSize === "medium") {
-      className = className.concat(" is-medium");
-    } else if (this.props.buttonSize === "large") {
-      className = className.concat(" is-large");
+    if(this.props.isLoading){
+      className = className.concat(" is-loading");
     }
+    className = className.concat(this.getSize());
+    className = className.concat(this.getColorType());
+
     return className;
   }
 
@@ -52,11 +81,10 @@ class Button extends Component {
         paddingRight: this.props.paddingHorizontal,
         paddingTop: this.props.paddingVertical,
         paddingBottom: this.props.paddingVertical,
-        borderColor: this.props.themePrimaryColor,
-        backgroundColor: this.state.hovered
-          ? this.props.themePrimaryColor
-          : "transparent",
-        color: this.state.hovered ? "#fff" : this.props.themePrimaryColor
+        borderColor: this.props.primaryColor,
+        backgroundColor:
+          this.state.hovered || this.state.focused ? this.props.primaryColor : "transparent",
+        color: this.state.hovered || this.state.focused ? "#fff" : this.props.primaryColor
       };
     } else {
       return {
@@ -64,7 +92,7 @@ class Button extends Component {
         paddingRight: this.props.paddingHorizontal,
         paddingTop: this.props.paddingVertical,
         paddingBottom: this.props.paddingVertical,
-        backgroundColor: this.props.themePrimaryColor
+        backgroundColor: this.props.primaryColor
       };
     }
   }
@@ -73,38 +101,51 @@ class Button extends Component {
     if (!this.props.disabled) {
       this.props.onClick();
     }
-  }
+  };
 
   render() {
     return (
-      <a
+      <button
         className={this.getClassName()}
         style={this.getStyle()}
         disabled={this.props.isDisabled}
-        onMouseEnter={() => this.mouseHoverOn()}
-        onMouseLeave={() => this.mouseHoverOff()}
+        onMouseEnter={() =>
+          this.setState({
+            hovered: true
+          })
+        }
+        onMouseLeave={() =>
+          this.setState({
+            hovered: false
+          })
+        }
         onClick={this.onClick}
+        onFocus={() => this.setState({ focused: true })}
+        onBlur={() => this.setState({ focused: false })}
       >
         {this.props.children}
-      </a>
+      </button>
     );
   }
 }
 
 Button.propTypes = {
   isPrimary: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  isSecondary: PropTypes.bool,
   isOutlined: PropTypes.bool,
   isRounded: PropTypes.bool,
   buttonSize: PropTypes.string,
   isDisabled: PropTypes.bool,
   paddingHorizontal: PropTypes.number,
   paddingVertical: PropTypes.number,
-  themePrimaryColor: PropTypes.string,
-  onClick: PropTypes.func
+  primaryColor: PropTypes.string,
+  onClick: PropTypes.func,
+  colorType: PropTypes.string
 };
 
 Button.defaultProps = {
   onClick() {}
-}
+};
 
 export default Button;
