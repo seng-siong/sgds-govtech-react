@@ -5,6 +5,16 @@ import { formatCode } from "../lib/utils";
 import SyntaxHighlighter from "../lib/SyntaxHighlighter";
 import { Breadcrumb } from "../../src/components";
 import { Page, Title } from "../shared-styles";
+import { select } from '@storybook/addon-knobs';
+
+//Knobs
+const options = {
+  Default: 'sgds-breadcrumb',
+  Arrow: 'sgds-breadcrumb has-arrow-separator',
+  Bullet: 'sgds-breadcrumb has-bullet-separator',
+  Dot: 'sgds-breadcrumb has-dot-separator',
+  Succeeds: 'sgds-breadcrumb has-succeeds-separator'
+};
 
 const code1 = `
 import { Breadcrumb } from 'sgds-govtech-react' 
@@ -33,7 +43,20 @@ const BreadcrumbStories = props => {
         </h5>
         <div className="row is-multiline">
           <div className="col">
-            <Breadcrumb items={[{text:'Home',link:'/'},{text:'Sub-link',link:'/'},{text:'Sub-Sub-link',link:'/'},]}></Breadcrumb>
+            <div className="sgds-notification is-toast">
+              <div className="sgds-notification-detail">
+                  <div className="sgds-notification-content">
+                      <p>Use the <code>knobs</code> tab below to explore the different seperator options</p>
+                  </div>
+              </div>
+            </div>
+            <nav className={select('Seperators',options, 'sgds-breadcrumb')} aria-label="breadcrumbs">
+              <ul>
+                  <li><a href="">HOME</a></li>
+                  <li><a href="">LINK 1</a></li>
+                  <li><a href="">LINK 2</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
         <div className="row">
@@ -47,7 +70,7 @@ const BreadcrumbStories = props => {
         </h5>
         <div className="row is-multiline">
           <div className="col">
-            <Breadcrumb className="padding--bottom content" items={[{text:'HOME',link:'/'},{text:'SUB-LINK',link:'/'},{text:'CURRENT-PAGE',link:'/'},]} hasBackgroundDark hasTextWhite></Breadcrumb>
+            <Breadcrumb className={`padding--bottom content ${select('Seperators',options)}`} items={[{text:'HOME',link:'/'},{text:'SUB-LINK',link:'/'},{text:'CURRENT-PAGE',link:'/'},]} hasBackgroundDark hasTextWhite></Breadcrumb>
           </div>
         </div>
         <div className="row">

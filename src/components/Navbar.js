@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 // navbar.js
 export const NavbarBrand = props => {
@@ -29,3 +30,24 @@ export const NavbarContainer = props => {
     </nav>
   );
 };
+
+export const NavbarDropdownContainer = props => {
+  return (
+    <div className="sgds-navbar-item has-dropdown is-hoverable">
+      <a href={props.link} className="sgds-navbar-link has-text-weight-semibold is-uppercase">{props.dropdownTitle}</a>
+      <div className="sgds-navbar-dropdown">
+        {props.children}
+      </div>
+    </div>
+  );
+};
+
+NavbarDropdownContainer.propType = {
+  dropdownTitle: PropTypes.string,
+  link: PropTypes.string
+}
+
+NavbarDropdownContainer.defaultProps = {
+  dropdownTitle: 'hello',
+  link: ''
+}

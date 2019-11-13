@@ -19,7 +19,7 @@ function App() {
   )
 }
 `;
-const code2 = `<Masthead hasMaxWidth={false}`;
+const code2 = `<Masthead hasMaxWidth={false} />`;
 const MastheadStories = () => {
   return (
     <Page>

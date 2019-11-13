@@ -1,4 +1,5 @@
 import { storiesOf } from "@storybook/react";
+import { withKnobs } from '@storybook/addon-knobs';
 import React from "react";
 
 import Welcome from "./pages/welcome.stories";
@@ -50,4 +51,4 @@ storiesOf("Components", module)
   .add("Dropdowns", () => <Dropdown />)
   .add("Breadcrumbs", () => <Breadcrumb />, {
     notes: { markdown: breadcrumbNotes }
-  });
+  }).addDecorator(withKnobs)

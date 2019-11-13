@@ -8,9 +8,16 @@ import {
   NavbarBrand,
   NavbarMenu,
   NavbarStart,
-  NavbarEnd
+  NavbarEnd,
+  NavbarDropdownContainer
  } from "../../src/components/Navbar";
-import { Page } from "../shared-styles";
+
+import {
+  Page,
+  Title,
+  ParagraphHeader,
+  ParagraphSubHeader
+} from "../shared-styles";
 
 // const code1 = `
 // import { MainNav } from 'sgds-govtech-react' 
@@ -35,10 +42,22 @@ const MainNavStories = () => {
   const [showNavbarMenu, setShowNavbarMenu] = useState('');
   return (
     <Page>
+      <Title>
+        <h3 className="has-text-white has-text-weight-semibold">Main Navigation</h3>
+      </Title>
+      
+      <section className="sgds-section">
+      <ParagraphHeader>
+        All .gov.sg informational services shall adopt a Global Primary Navigation Panel across all pages
+      </ParagraphHeader>
+
+      <hr className="margin--bottom--lg margin--top--lg"></hr>
+
+      <ParagraphHeader>Main Navigation example</ParagraphHeader>
       <NavbarContainer>
           <NavbarBrand>
             <a href className="sgds-navbar-item has-text-weight-semibold">
-              <h1>Main brand</h1>
+              <img src="https://dev.designsystem.gov.sg/assets/img/logo_sgds.png" alt=""/>
             </a>
             <div
               className={`sgds-navbar-burger burger ${
@@ -53,14 +72,7 @@ const MainNavStories = () => {
           </NavbarBrand>
           <NavbarMenu isActive={showNavbarMenu}>
             <NavbarStart>
-              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold">
-                Category ABA
-              </a>
-              <div className="sgds-navbar-item has-dropdown is-hoverable">
-                <a href className="sgds-navbar-link is-uppercase has-text-weight-semibold">
-                  Who we are
-                </a>
-                <div className="sgds-navbar-dropdown">
+              <NavbarDropdownContainer>
                   <a href className="sgds-navbar-item has-text-weight-semibold">
                     Sub Link 1
                   </a>
@@ -70,22 +82,25 @@ const MainNavStories = () => {
                   <a href className="sgds-navbar-item has-text-weight-semibold">
                     Sub Link 3
                   </a>
-                </div>
-              </div>
+              </ NavbarDropdownContainer>
+              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
+                Category ABA
+              </a>
             </NavbarStart>
             <NavbarEnd>
-              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold">
+              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
                 Category ACD
               </a>
-              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold">
+              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
                 Category ACD
               </a>
-              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold">
+              <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
                 Category ACD
               </a>
             </NavbarEnd>
           </NavbarMenu>
         </NavbarContainer>
+        </section>
     </Page>
   );
 };
