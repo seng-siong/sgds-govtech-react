@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // import styled from "styled-components";
 // import { action } from "@storybook/addon-actions";
-// import { formatCode } from "../lib/utils";
-// import SyntaxHighlighter from "../lib/SyntaxHighlighter";
+import { formatCode } from "../lib/utils";
+import SyntaxHighlighter from "../lib/SyntaxHighlighter";
 import { 
   NavbarContainer,
   NavbarBrand,
@@ -15,28 +15,62 @@ import {
 import {
   Page,
   Title,
-  ParagraphHeader,
-  ParagraphSubHeader
+  ParagraphHeader
 } from "../shared-styles";
 
-// const code1 = `
-// import { MainNav } from 'sgds-govtech-react' 
+const code1 = `
+import { MainNav } from 'sgds-govtech-react' 
 
-// <MainNav
-// brand={this.mainNavItems.brand}
-// links={this.mainNavItems.links}
-// selectItem={this.selectMenuItem}
-// />
+function App() {
+  return (
+    <NavbarContainer>
+      <NavbarBrand>
+        <a href className="sgds-navbar-item has-text-weight-semibold">
+          <img src="https://dev.designsystem.gov.sg/assets/img/logo_sgds.png" alt=""/>
+        </a>
+        <div
+          className="sgds-navbar-burger burger"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </NavbarBrand>
+      <NavbarMenu isActive={showNavbarMenu}>
+        <NavbarStart>
+          <NavbarDropdownContainer>
+              <a href className="sgds-navbar-item has-text-weight-semibold">
+                Sub Link 1
+              </a>
+              <a href className="sgds-navbar-item has-text-weight-semibold">
+                Sub Link 2
+              </a>
+              <a href className="sgds-navbar-item has-text-weight-semibold">
+                Sub Link 3
+              </a>
+          </ NavbarDropdownContainer>
+          <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
+            Category ABA
+          </a>
+        </NavbarStart>
+        <NavbarEnd>
+          <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
+            Category ACD
+          </a>
+          <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
+            Category ACD
+          </a>
+          <a href className="sgds-navbar-item is-uppercase has-text-weight-semibold is-tab">
+            Category ACD
+          </a>
+        </NavbarEnd>
+      </NavbarMenu>
+  </NavbarContainer>
+  )
+};
 
-// `;
-// const code2 = `
-// <MainNav
-// brand={this.mainNavItems.brand}
-// links={this.mainNavItems.links}
-// selectItem={this.selectMenuItem}
-// displaySearch={true}
-// />
-// `;
+`
+
 
 const MainNavStories = () => {
   const [showNavbarMenu, setShowNavbarMenu] = useState('');
@@ -100,7 +134,17 @@ const MainNavStories = () => {
             </NavbarEnd>
           </NavbarMenu>
         </NavbarContainer>
+        <hr/>
+        <h4>Component Code</h4>
+        <SyntaxHighlighter>
+          {formatCode(code1)}
+        </SyntaxHighlighter>
+
         </section>
+        
+        
+            
+        
     </Page>
   );
 };

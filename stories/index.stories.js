@@ -11,7 +11,9 @@ import {
   Masthead,
   MainNav,
   Footer,
-  SideNav
+  SideNav,
+  // Tab,
+  // Notification
 } from "./components";
 
 import buttonNotes from "./notes/components/buttons.md";
@@ -39,7 +41,7 @@ storiesOf("Digital Service Standards Components", module)
   })
   .add("Side Navigation Panel", () => <SideNav />, {
     notes: { markdown: sideNavNotes }
-  });
+  }).addDecorator(withKnobs);
 
 storiesOf("Components", module)
   .add("Accordions", () => <Accordion />, {
@@ -49,6 +51,9 @@ storiesOf("Components", module)
     notes: { markdown: buttonNotes }
   })
   .add("Dropdowns", () => <Dropdown />)
+  // .add("Tab", () => <Tab />)
+  // .add("Notification", () => <Notification />)
   .add("Breadcrumbs", () => <Breadcrumb />, {
     notes: { markdown: breadcrumbNotes }
-  }).addDecorator(withKnobs)
+  })
+  .addDecorator(withKnobs)

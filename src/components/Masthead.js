@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Masthead(props) {
-  return (
+const Masthead = props => {
+  return(
     <div className="sgds-masthead">
       <div
         className={`sgds-container ${props.hasMaxWidth ? "" : "is-fluid"}`}
@@ -19,8 +19,9 @@ function Masthead(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
+
 Masthead.defaultProps = {
   hasMaxWidth: true
 };

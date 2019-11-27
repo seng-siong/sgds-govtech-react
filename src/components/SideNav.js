@@ -1,8 +1,9 @@
-import React, { Component, useState } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from "react";
+// import PropTypes from "prop-types";
 
 const DropDownLink = (props) =>{
-  const dropDownClickHandler = () =>{
+  const dropDownClickHandler = (e) =>{
+    e.preventDefault();
     props.onClick(props.id,!props.isActive);
   }
   let computedLinkClass = "second-level-nav-header "
@@ -14,7 +15,7 @@ const DropDownLink = (props) =>{
     computedIconClass += 'sgds-icon-chevron-down'
   }
   return (
-    <a className={computedLinkClass} onClick={dropDownClickHandler}>
+    <a href className={computedLinkClass} onClick={dropDownClickHandler}>
       {props.children}
       <i className={computedIconClass} aria-hidden="true"></i>
     </a>
