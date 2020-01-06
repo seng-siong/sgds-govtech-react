@@ -1,10 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import { formatCode } from "../lib/utils";
 import SyntaxHighlighter from "../lib/SyntaxHighlighter";
 import { Notification, NotificationClose , NotificationDetail,NotificationContent } from "../../src/components/Notification";
 import { Page, Title } from "../shared-styles";
 import { select } from '@storybook/addon-knobs';
-import {Button} from "../../src/components/Button";
 
 const options = {
     Default : '',

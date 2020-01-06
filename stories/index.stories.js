@@ -12,7 +12,7 @@ import {
   Footer,
   SideNav,
   MainNav,
-  // Tab,
+  Tab,
   Notification
 } from "./components";
 
@@ -51,7 +51,7 @@ storiesOf("Components", module)
     notes: { markdown: buttonNotes }
   })
   .add("Dropdowns", () => <Dropdown />)
-  // .add("Tab", () => <Tab />)
+  .add("Tab", () => <Tab />)
   .add("Notification", () => <Notification />)
   .add("Breadcrumbs", () => <Breadcrumb />, {
     notes: { markdown: breadcrumbNotes }

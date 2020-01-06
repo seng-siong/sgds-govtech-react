@@ -2,10 +2,10 @@
 import React from "react";
 
 
-export const Button = props => {
+export const Button = ({children}) => {
   return (
     <button>
-      {props.children}
+      {children}
     </button>
   )
 }
