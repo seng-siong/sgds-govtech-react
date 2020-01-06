@@ -67,7 +67,7 @@ const DropdownStories = props => {
               </DropdownItem>
               <DropdownItem
                 href="#!"
-                onClick={e => {
+                onClick = {e => {
                   e.preventDefault();
                   onDropdownItemClicked(2);
                 }}
@@ -83,13 +83,7 @@ const DropdownStories = props => {
               </DropdownItem>
               <DropdownItem>
                 <p>Item 4: Insert any content you wish to</p>
-                <Button
-                  onClick={() => {
-                    onDropdownItemClicked(4);
-                  }}
-                >
-                  A button
-                </Button>
+                
               </DropdownItem>
             </Dropdown>
           </div>
@@ -117,13 +111,6 @@ const DropdownStories = props => {
               </DropdownItem>
               <DropdownItem>
                 <p>Item 4: Insert any content you wish to</p>
-                <Button
-                  onClick={() => {
-                    onDropdownItemClicked(4);
-                  }}
-                >
-                  A button
-                </Button>
               </DropdownItem>
             </Dropdown>
           </div>

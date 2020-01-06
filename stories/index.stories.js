@@ -9,11 +9,11 @@ import {
   Dropdown,
   Breadcrumb,
   Masthead,
-  MainNav,
   Footer,
   SideNav,
+  MainNav,
   // Tab,
-  // Notification
+  Notification
 } from "./components";
 
 import buttonNotes from "./notes/components/buttons.md";
@@ -52,8 +52,8 @@ storiesOf("Components", module)
   })
   .add("Dropdowns", () => <Dropdown />)
   // .add("Tab", () => <Tab />)
-  // .add("Notification", () => <Notification />)
+  .add("Notification", () => <Notification />)
   .add("Breadcrumbs", () => <Breadcrumb />, {
     notes: { markdown: breadcrumbNotes }
-  })
-  .addDecorator(withKnobs)
+  }).addDecorator(withKnobs);
+

@@ -1,10 +1,10 @@
-import React from "react";
-
-// import { formatCode } from "../lib/utils";
-// import SyntaxHighlighter from "../lib/SyntaxHighlighter";
+import React, {useState} from "react";
+import { formatCode } from "../lib/utils";
+import SyntaxHighlighter from "../lib/SyntaxHighlighter";
 import { Notification, NotificationClose , NotificationDetail,NotificationContent } from "../../src/components/Notification";
 import { Page, Title } from "../shared-styles";
 import { select } from '@storybook/addon-knobs';
+import {Button} from "../../src/components/Button";
 
 const options = {
     Default : '',
@@ -30,12 +30,11 @@ const isToastOptions = {
     Light : 'is-toast-light'
 }
 
-// const withCloseBtn ={
-//     Default : '',
-//     Close : 
-// }
-
 const NotificationStories = () => {
+
+    
+    // const [duration, setDuration] = useState(1000);
+
     return(
         <Page>
             <Title>
@@ -46,28 +45,60 @@ const NotificationStories = () => {
                     <div className="row">
                         <div className="col is-6">
                             <h5 className="margin--bottom--lg">Default Notification</h5>
-                            <Notification NotificationType={select('Default Notification', options, 'is-primary')}>
+                            
+                            <Notification colorType={select('Default Notification', options, 'is-primary')}>
                                 <NotificationDetail>
                                     <NotificationClose/>
                                     <NotificationContent>
-                                        <p class="has-text-weight-bold">Updates</p>
+                                        <p className="has-text-weight-bold">Updates</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci aut dicta</p>
                                     </NotificationContent>
                                 </NotificationDetail>
                             </Notification>
+
+                            <SyntaxHighlighter>
+                                {formatCode(
+                                    `
+                                        <Notification colorType="${select('Default Notification')}">
+                                            <NotificationDetail>
+                                                <NotificationClose/>
+                                                <NotificationContent>
+                                                    <p className="has-text-weight-bold">Updates</p>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci aut dicta</p>
+                                                </NotificationContent>
+                                            </NotificationDetail>
+                                        </Notification>
+                                    `
+                                )}
+                            </SyntaxHighlighter>
                         </div>
                         <div className="col is-6">
                             <h5 className="margin--bottom--lg">Toast Notification</h5>
-                            <Notification NotificationType={select('Toast Notification', isToastOptions, 'is-toast-primary')}>
+                            <Notification colorType={select('Toast Notification', isToastOptions, 'is-toast-primary')}>
                                 <NotificationDetail>
-                                    <span class="sgds-icon sgds-icon-callout is-size-4"></span>
                                     <NotificationClose/>
                                     <NotificationContent>
-                                        <p class="has-text-weight-bold">Updates</p>
+                                        <p className="has-text-weight-bold">Updates</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci aut dicta</p>
                                     </NotificationContent>
                                 </NotificationDetail>
                             </Notification>
+
+                            <SyntaxHighlighter>
+                                {formatCode(
+                                    `
+                                    <Notification colorType="${select('Toast Notification')}">
+                                    <NotificationDetail>
+                                        <NotificationClose/>
+                                        <NotificationContent>
+                                            <p className="has-text-weight-bold">Updates</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci aut dicta</p>
+                                        </NotificationContent>
+                                    </NotificationDetail>
+                                </Notification>
+                                    `
+                                )}
+                            </SyntaxHighlighter>
                         </div>
                     </div>
                 </div>

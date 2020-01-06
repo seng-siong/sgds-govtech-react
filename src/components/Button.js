@@ -5,7 +5,7 @@ import React from "react";
 export const Button = props => {
   return (
     <button>
-      {this.props.children}
+      {props.children}
     </button>
   )
 }

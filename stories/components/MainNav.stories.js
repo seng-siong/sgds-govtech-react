@@ -141,10 +141,6 @@ const MainNavStories = () => {
         </SyntaxHighlighter>
 
         </section>
-        
-        
-            
-        
     </Page>
   );
 };

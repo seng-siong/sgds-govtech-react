@@ -1,36 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Notification = props =>{
+export const Notification = ({children, colorType}) =>{
     return(
-        <div class={`sgds-notification ${props.NotificationType}`}>
-            {props.children}
+        <div className={`sgds-notification ${colorType}`}>
+            {children}
         </div>
     )
 }
 
 export const NotificationClose = () => {
     return(
-        <span class="delete" id="cancel-notification"></span>
+        <span className="delete" id="cancel-notification"></span>
     )
 }
 
-export const NotificationDetail= props => {
+export const NotificationDetail= ({children}) => {
     return(
-        <div class="sgds-notification-detail">{props.children}</div>
+        <div className="sgds-notification-detail">{children}</div>
     )
 }
 
-export const NotificationContent= props => {
+export const NotificationContent= ({children}) => {
     return(
-        <div class="sgds-notification-content">{props.children}</div>
+        <div className="sgds-notification-content">{children}</div>
     )
 }
 
 Notification.propType = {
-    NotificationType: PropTypes.string
+    colorType: PropTypes.string,
 }
-  
+
 Notification.defaultProps = {
-    NotificationType: ''
+    colorType: ''
 }

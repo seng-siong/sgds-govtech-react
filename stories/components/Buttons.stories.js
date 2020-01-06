@@ -39,7 +39,6 @@ const sizeOption = {
   isLarge: 'is-large'
 }
 
-
 const ButtonStories = () => {
   return (
     <Page>
@@ -78,7 +77,7 @@ const ButtonStories = () => {
         <div className="row">
           <div className="col">
             <SyntaxHighlighter>
-              {formatCode(`<Button href="${text('Link')}" class="sgds-button ${select('Colours')} ${options('Rounded')} ${options('Loading')} ${options('Outlined')} ${options('FullWidth')} ${select('Size')}">${text('Text')}</Button>`)}
+              {formatCode(`<Button href="${text('Link')}" className="sgds-button ${select('Colours')} ${options('Rounded')} ${options('Loading')} ${options('Outlined')} ${options('FullWidth')} ${select('Size')}">${text('Text')}</Button>`)}
             </SyntaxHighlighter>
           </div>
         </div>
@@ -112,7 +111,7 @@ const ButtonStories = () => {
         <div className="row">
           <div className="col">
           <SyntaxHighlighter>
-            {formatCode(`<div className="sgds-buttons"><Button href="${text('Link')}" class="sgds-button ${select('Colours')} ${options('Rounded')} ${options('Loading')} ${options('Outlined')} ${options('FullWidth')} ${select('Size')}">${text('Text')}</Button><Button className="sgds-button is-primary">Another button</Button></div>`)}
+            {formatCode(`<div className="sgds-buttons"><Button href="${text('Link')}" className="sgds-button ${select('Colours')} ${options('Rounded')} ${options('Loading')} ${options('Outlined')} ${options('FullWidth')} ${select('Size')}">${text('Text')}</Button><Button className="sgds-button is-primary">Another button</Button></div>`)}
           </SyntaxHighlighter>
           </div>
         </div>
